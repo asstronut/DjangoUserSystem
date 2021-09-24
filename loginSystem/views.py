@@ -16,8 +16,8 @@ def register(request):
         form = UserRegisterForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, message='Registration ')
-            return redirect(reverse('loginSystem:index'))
+            messages.success(request, message='Account has been created. You\'re now able to')
+            return redirect(reverse('loginSystem:login'))
     else:
         form = UserRegisterForm()
     context = {
@@ -27,5 +27,5 @@ def register(request):
     return render(request, 'loginSystem/register.html', context)
 
 
-def login(request):
-    return render(request, 'loginSystem/login.html')
+# def login(request):
+#     return render(request, 'loginSystem/login.html')
